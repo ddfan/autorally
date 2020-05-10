@@ -40,8 +40,8 @@ limitations under the License.
   <!--<param name="autorally_simulation" value"true"/> -->
 
   <!-- Vehicle pose -->
-  <arg name="x" default="-1.0"/>
-  <arg name="y" default="-8.5"/>
+  <arg name="x" default="-3.0"/>
+  <arg name="y" default="-6.5"/>
   <arg name="z" default="0.2"/>
   <arg name="roll" default="0.0"/>
   <arg name="pitch" default="0.0"/>
@@ -80,9 +80,9 @@ limitations under the License.
   </node>
 
   <!-- Run ground truth pose script, published on /ground_truth/state-->
-  <node name="ground_truth_republisher" pkg="autorally_gazebo"
+<!--   <node name="ground_truth_republisher" pkg="autorally_gazebo"
         type="ground_truth_republisher.py" output="screen">
-  </node>
+  </node> -->
 
 <!--  <include file="$(find autorally_core)/launch/autorally_core_manager.launch" /> -->
 <!--  <include file="$(find autorally_control)/launch/joystickController.launch" /> -->

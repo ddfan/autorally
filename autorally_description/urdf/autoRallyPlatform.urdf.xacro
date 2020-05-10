@@ -662,7 +662,7 @@ limitations under the License.
       <rpyOffset>0 0 0</rpyOffset>
     </plugin>
 
-    <plugin name="tire_friction" filename="libTireFrictionPlugin.so">
+<!--     <plugin name="tire_friction" filename="libTireFrictionPlugin.so">
       <link_name>left_rear_wheel</link_name>
       <collision_name>collision</collision_name>
       <friction_static>1.1</friction_static>
@@ -670,7 +670,7 @@ limitations under the License.
       <slip_static>0.10</slip_static>
       <slip_dynamic>0.20</slip_dynamic>
       <speed_static>0.50</speed_static>
-    </plugin>
+    </plugin> -->
 
   </gazebo>
 </robot>
