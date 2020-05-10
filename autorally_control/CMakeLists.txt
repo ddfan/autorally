@@ -35,10 +35,10 @@ catkin_package(
 include_directories(include ${catkin_INCLUDE_DIRS} ${Boost_INCLUDE_DIR})
 include_directories(SYSTEM ${EIGEN3_INCLUDE_DIR})
 
-add_subdirectory(src/ConstantSpeedController)
+#add_subdirectory(src/ConstantSpeedController)
 add_subdirectory(src/joystick)
 add_subdirectory(src/gpsWaypoint)
-add_subdirectory(src/path_integral)
+#add_subdirectory(src/path_integral)
 
 install(DIRECTORY launch/
    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch

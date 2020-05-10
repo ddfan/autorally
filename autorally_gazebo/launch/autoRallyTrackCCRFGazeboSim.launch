@@ -40,7 +40,7 @@ limitations under the License.
   <!--<param name="autorally_simulation" value"true"/> -->
 
   <!-- Vehicle pose -->
-  <arg name="x" default="0.0"/>
+  <arg name="x" default="-1.0"/>
   <arg name="y" default="-8.5"/>
   <arg name="z" default="0.2"/>
   <arg name="roll" default="0.0"/>
@@ -76,7 +76,7 @@ limitations under the License.
     <param name="cmd_timeout" value="$(arg cmd_timeout)"/>
     <param name="vehicle_prefix" value="$(arg namespace)"/>
     <rosparam file="$(find autorally_gazebo)/config/autoRallyPlatformCtrlrParams.yaml" command="load"/>
-    <rosparam param="chassisCommandProirities" command="load" file="$(env AR_CONFIG_PATH)/chassisCommandPriorities.yaml"/>
+    <rosparam param="chassisCommandProirities" command="load" file="$(find autorally_util)/config/chassisCommandPriorities.yaml"/>
   </node>
 
   <!-- Run ground truth pose script, published on /ground_truth/state-->
@@ -84,6 +84,6 @@ limitations under the License.
         type="ground_truth_republisher.py" output="screen">
   </node>
 
-  <include file="$(find autorally_core)/launch/autorally_core_manager.launch" />
-  <include file="$(find autorally_control)/launch/joystickController.launch" />
+<!--  <include file="$(find autorally_core)/launch/autorally_core_manager.launch" /> -->
+<!--  <include file="$(find autorally_control)/launch/joystickController.launch" /> -->
 </launch>
