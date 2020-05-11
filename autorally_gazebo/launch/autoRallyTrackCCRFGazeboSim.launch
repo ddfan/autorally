@@ -54,11 +54,14 @@ limitations under the License.
 
   <param name="robot_description" command="$(find xacro)/xacro $(find autorally_description)/urdf/autoRallyPlatform.urdf.xacro prefix:=/ track:=ccrf"/>
 
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <remap from="joint_states" to="joint_state_publisher_states"/>
+  </node>
+  
   <node name="autoRally_state_publisher" pkg="robot_state_publisher"
         type="robot_state_publisher">
     <param name="publish_frequency" value="50.0"/>
   </node>
-
 
   <node name="spawn_platform" pkg="gazebo_ros" type="spawn_model"
         args="-param robot_description -urdf -model Alpha

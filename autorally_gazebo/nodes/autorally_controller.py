@@ -562,7 +562,7 @@ class AutoRallyCtrlr(object):
       #return data.twist[idx].angular.y * (dia)/2.0 #if data is from linkState message
       return data.velocity[idx]*(dia/2.0)
     except IndexError:
-      rospy.logerror('modelStates does not contain ' + name)
+      rospy.logerr('modelStates does not contain ' + name)
       return 0.0
 
 
