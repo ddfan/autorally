@@ -329,6 +329,7 @@ class AutoRallyCtrlr(object):
         t - self._last_cmd_time > self._cmd_timeout):
         # Too much time has elapsed since the last command. Stop the
         # vehicle.
+        speed = 0.0
         steer_ang_changed, center_y = \
           self._ctrl_steering(self._last_steer_ang, 0.0, 0.001)
         self._ctrl_axles(0.0, 0.0, 0.0, steer_ang_changed, center_y)
