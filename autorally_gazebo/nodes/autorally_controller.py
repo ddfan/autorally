@@ -351,8 +351,8 @@ class AutoRallyCtrlr(object):
           for cmd,priority in self.commandPriorities:
             #rospy.logwarn("looking for chassis commander %s with priority %d", cmd, priority)
             if cmd in self.chassisCmds:
-              if abs(self.chassisCmds[cmd].steering) <= 1.0 and \
-                 (rospy.Time.now()-self.chassisCmds[cmd].header.stamp) < \
+              self.chassisCmds[cmd].steering = numpy.clip(self.chassisCmds[cmd].steering,-1.0, 1.0)
+              if (rospy.Time.now()-self.chassisCmds[cmd].header.stamp) < \
                     rospy.Duration.from_sec(0.2) and\
                  not foundSteering:
                 #rospy.loginfo("%s in control of steering", cmd);
@@ -362,8 +362,8 @@ class AutoRallyCtrlr(object):
                 chassisSt.steeringCommander = self.chassisCmds[cmd].sender
                 foundSteering = True
 
-              if abs(self.chassisCmds[cmd].throttle) <= 1.0 and \
-                 (rospy.Time.now()-self.chassisCmds[cmd].header.stamp) < \
+              self.chassisCmds[cmd].throttle = numpy.clip(self.chassisCmds[cmd].throttle,-1.0, 1.0)
+              if (rospy.Time.now()-self.chassisCmds[cmd].header.stamp) < \
                     rospy.Duration.from_sec(0.2) and\
                  not foundThrottle:
 
@@ -378,10 +378,8 @@ class AutoRallyCtrlr(object):
                 chassisSt.throttleCommander = self.chassisCmds[cmd].sender
                 foundThrottle = True
 
-
-              if self.chassisCmds[cmd].frontBrake >= 0.0 and \
-                 self.chassisCmds[cmd].frontBrake <= 1.0 and \
-                 (rospy.Time.now()-self.chassisCmds[cmd].header.stamp) < \
+              self.chassisCmds[cmd].frontBrake = numpy.clip(self.chassisCmds[cmd].frontBrake, 0.0, 1.0)
+              if (rospy.Time.now() - self.chassisCmds[cmd].header.stamp) < \
                     rospy.Duration.from_sec(0.2) and\
                  not foundFrontBrake:
 
