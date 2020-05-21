@@ -265,8 +265,13 @@ class AutoRallyCtrlr(object):
 
       self.front_axle_max_effort = 2.5
       self.front_axle_brake_effort = 2.5
-      self.rear_axle_max_effort = 8
+      self.rear_axle_max_effort = 1.0
       self.rear_axle_brake_effort = 4
+
+      self.accel_limit = 2.0
+      self.max_throttle = 2.0
+
+      # max_speed = max_throttle * rear_axle_max_effort
 
       #self.rear_axle_reverse_percent = 0.25 # percent of max_effort applied when reversing
       #self.rear_axle_reverse_effort = self.rear_axle_max_effort*self.rear_axle_reverse_percent
@@ -341,7 +346,6 @@ class AutoRallyCtrlr(object):
           steer_ang = 0.0
           steer_ang_vel = 0.0
           foundSteering = False
-          accel = 0.0
 
           if not chassisSt.runstopMotionEnabled:
             chassisSt.throttle = 0.0;
@@ -362,7 +366,7 @@ class AutoRallyCtrlr(object):
                 chassisSt.steeringCommander = self.chassisCmds[cmd].sender
                 foundSteering = True
 
-              self.chassisCmds[cmd].throttle = numpy.clip(self.chassisCmds[cmd].throttle,-1.0, 1.0)
+              self.chassisCmds[cmd].throttle = numpy.clip(self.chassisCmds[cmd].throttle,-self.max_throttle, self.max_throttle)
               if (rospy.Time.now()-self.chassisCmds[cmd].header.stamp) < \
                     rospy.Duration.from_sec(0.2) and\
                  not foundThrottle:
@@ -373,7 +377,6 @@ class AutoRallyCtrlr(object):
                 else:
                   speed = self.rear_axle_brake_effort*self.chassisCmds[cmd].throttle
 
-                accel = 0.0
                 chassisSt.throttle = self.chassisCmds[cmd].throttle
                 chassisSt.throttleCommander = self.chassisCmds[cmd].sender
                 foundThrottle = True
@@ -393,7 +396,7 @@ class AutoRallyCtrlr(object):
                 frontBrake = 0
 
           steer_ang_changed, center_y = self._ctrl_steering(steer_ang, steer_ang_vel, delta_t)
-          self._ctrl_axles(speed, accel, delta_t, steer_ang_changed, center_y)
+          self._ctrl_axles(speed, self.accel_limit, delta_t, steer_ang_changed, center_y)
 
         # Publish the steering and axle joint commands.
         chassisSt.header.stamp = rospy.Time.now()
@@ -406,9 +409,9 @@ class AutoRallyCtrlr(object):
         if self._right_front_axle_cmd_pub:
           self._right_front_axle_cmd_pub.publish(frontBrake)
         if self._left_rear_axle_cmd_pub:
-          self._left_rear_axle_cmd_pub.publish(speed)
+          self._left_rear_axle_cmd_pub.publish(self._left_rear_ang_vel)
         if self._right_rear_axle_cmd_pub:
-          self._right_rear_axle_cmd_pub.publish(speed)
+          self._right_rear_axle_cmd_pub.publish(self._right_rear_ang_vel)
 
         try:
           self._sleep_timer.sleep()

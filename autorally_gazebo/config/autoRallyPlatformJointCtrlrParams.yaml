@@ -33,19 +33,19 @@ right_steering_ctrlr:
 
 left_front_axle_ctrlr:
   joint: left_front_axle
-  type: effort_controllers/JointEffortController
+  type: effort_controllers/JointVelocityController
   pid: {p: 1.5, i: 0.2, d: 0.0, i_clamp: 10.0}
 right_front_axle_ctrlr:
   joint: right_front_axle
-  type: effort_controllers/JointEffortController
+  type: effort_controllers/JointVelocityController
   pid: {p: 1.5, i: 0.2, d: 0.0, i_clamp: 10.0}
 left_rear_axle_ctrlr:
   joint: left_rear_axle
-  type: effort_controllers/JointEffortController
+  type: effort_controllers/JointVelocityController
   pid: {p: 1.5, i: 0.5, d: 0.0, i_clamp: 10.0}
 right_rear_axle_ctrlr:
   joint: right_rear_axle
-  type: effort_controllers/JointEffortController
+  type: effort_controllers/JointVelocityController
   pid: {p: 1.5, i: 0.5, d: 0.0, i_clamp: 10.0}
 
 # The proportional gain of each shock absorber controller is:
