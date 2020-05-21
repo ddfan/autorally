@@ -268,8 +268,8 @@ class AutoRallyCtrlr(object):
       self.rear_axle_max_effort = 1.0
       self.rear_axle_brake_effort = 4
 
-      self.accel_limit = 2.0
-      self.max_throttle = 2.0
+      self.accel_limit = 50.0
+      self.max_throttle = 50.0
 
       # max_speed = max_throttle * rear_axle_max_effort
 
@@ -360,7 +360,7 @@ class AutoRallyCtrlr(object):
                     rospy.Duration.from_sec(0.2) and\
                  not foundSteering:
                 #rospy.loginfo("%s in control of steering", cmd);
-                steer_ang = -math.radians(25)*self.chassisCmds[cmd].steering
+                steer_ang = -math.radians(45) * self.chassisCmds[cmd].steering
                 steer_ang_vel = 0.0
                 chassisSt.steering = self.chassisCmds[cmd].steering
                 chassisSt.steeringCommander = self.chassisCmds[cmd].sender
