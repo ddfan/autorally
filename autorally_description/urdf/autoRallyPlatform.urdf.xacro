@@ -31,6 +31,7 @@ limitations under the License.
 <robot name="autorally_platform" xmlns:xacro="http://www.ros.org/wiki/xacro">
   <!-- Degree-to-radian conversions -->
   <xacro:property name="degrees_45" value="0.785398163"/>
+  <xacro:property name="degrees_30" value="0.523599"/>
   <xacro:property name="degrees_21" value="0.3665191429"/>
   <xacro:property name="degrees_90" value="1.57079633"/>
 
@@ -308,7 +309,7 @@ limitations under the License.
       <child link="${lr_prefix}_${fr_prefix}_axle_carrier"/>
       <!-- cant the front wheels to improve traction -->
       <axis xyz="0 ${-lr_reflect*0.09950372}  0.99503719"/>
-      <limit lower="${-degrees_21}" upper="${degrees_21}"
+      <limit lower="${-degrees_30}" upper="${degrees_30}"
              effort="${servo_stall_torque}" velocity="${servo_no_load_speed}"/>
     </joint>
 

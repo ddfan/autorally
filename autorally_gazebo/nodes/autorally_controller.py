@@ -360,7 +360,7 @@ class AutoRallyCtrlr(object):
                     rospy.Duration.from_sec(0.2) and\
                  not foundSteering:
                 #rospy.loginfo("%s in control of steering", cmd);
-                steer_ang = -math.radians(45) * self.chassisCmds[cmd].steering
+                steer_ang = -math.radians(30) * self.chassisCmds[cmd].steering
                 steer_ang_vel = 0.0
                 chassisSt.steering = self.chassisCmds[cmd].steering
                 chassisSt.steeringCommander = self.chassisCmds[cmd].sender
