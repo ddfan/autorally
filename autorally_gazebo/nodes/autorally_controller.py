@@ -266,7 +266,7 @@ class AutoRallyCtrlr(object):
       self.front_axle_max_effort = 2.5
       self.front_axle_brake_effort = 2.5
       self.rear_axle_max_effort = 1.0
-      self.rear_axle_brake_effort = 4
+      self.rear_axle_brake_effort = 1.0
 
       self.accel_limit = 50.0
       self.max_throttle = 50.0

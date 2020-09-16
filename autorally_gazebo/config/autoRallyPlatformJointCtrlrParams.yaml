@@ -25,11 +25,11 @@ joint_state_ctrlr:
 left_steering_ctrlr:
   joint: left_steering_joint
   type: effort_controllers/JointPositionController
-  pid: {p: 8.0, i: 0.0, d: 0.5}
+  pid: {p: 4.0, i: 0.0, d: 0.5}
 right_steering_ctrlr:
   joint: right_steering_joint
   type: effort_controllers/JointPositionController
-  pid: {p: 8.0, i: 0.0, d: 0.5}
+  pid: {p: 4.0, i: 0.0, d: 0.5}
 
 left_front_axle_ctrlr:
   joint: left_front_axle
@@ -72,16 +72,16 @@ right_rear_axle_ctrlr:
 left_front_shock_ctrlr:
   joint: left_front_shock
   type: effort_controllers/JointPositionController
-  pid: {p: 3152.28303, i: 0.0, d: 30}
+  pid: {p: 6152.28303, i: 0.0, d: 30}
 right_front_shock_ctrlr:
   joint: right_front_shock
   type: effort_controllers/JointPositionController
-  pid: {p: 3152.28303, i: 0.0, d: 30}
+  pid: {p: 6152.28303, i: 0.0, d: 30}
 left_rear_shock_ctrlr:
   joint: left_rear_shock
   type: effort_controllers/JointPositionController
-  pid: {p: 4234.88528273, i: 0.0, d: 25}
+  pid: {p: 7234.88528273, i: 0.0, d: 25}
 right_rear_shock_ctrlr:
   joint: right_rear_shock
   type: effort_controllers/JointPositionController
-  pid: {p: 4234.88528273, i: 0.0, d: 25}
+  pid: {p: 7234.88528273, i: 0.0, d: 25}
