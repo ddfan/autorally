@@ -263,6 +263,7 @@ class AutoRallyCtrlr(object):
       self.runstops = dict()
       self.runstopLock = threading.Lock()
 
+      self.use_front_brake = False
       self.front_axle_max_effort = 2.5
       self.front_axle_brake_effort = 2.5
       self.rear_axle_max_effort = 1.0
@@ -405,9 +406,15 @@ class AutoRallyCtrlr(object):
         self._left_steer_cmd_pub.publish(self._theta_left)
         self._right_steer_cmd_pub.publish(self._theta_right)
         if self._left_front_axle_cmd_pub:
-          self._left_front_axle_cmd_pub.publish(frontBrake)
+          if self.use_front_brake:
+            self._left_front_axle_cmd_pub.publish(frontBrake)
+          else:
+            self._left_front_axle_cmd_pub.publish(self._left_front_ang_vel)
         if self._right_front_axle_cmd_pub:
-          self._right_front_axle_cmd_pub.publish(frontBrake)
+          if self.use_front_brake:
+            self._right_front_axle_cmd_pub.publish(frontBrake)
+          else:
+            self._right_front_axle_cmd_pub.publish(self._right_front_ang_vel)
         if self._left_rear_axle_cmd_pub:
           self._left_rear_axle_cmd_pub.publish(self._left_rear_ang_vel)
         if self._right_rear_axle_cmd_pub:

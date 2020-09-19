@@ -35,6 +35,7 @@ limitations under the License.
   <arg name="namespace" default=""/>
   <arg name="world_name" default="model://urdf/worlds/ccrf_track.world"/>
   <arg name="cmd_timeout" default="0.5"/>
+  <arg name="gui" default="true"/>
 
   <!-- parameter for other programs to use to know if we are in simulation ro real world-->
   <!--<param name="autorally_simulation" value"true"/> -->
@@ -50,6 +51,7 @@ limitations under the License.
   <!-- Create the world. -->
   <include file="$(find autorally_gazebo)/launch/autoRallyTrackCCRFWorld.launch">
     <arg name="world_name" value="$(arg world_name)"/>
+    <arg name="gui" value="$(arg gui)"/>
   </include>
 
   <param name="robot_description" command="$(find xacro)/xacro $(find autorally_description)/urdf/autoRallyPlatform.urdf.xacro prefix:=/ track:=ccrf"/>
