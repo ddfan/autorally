@@ -259,29 +259,9 @@ limitations under the License.
         </geometry>
       </collision>
 
-      <collision name="material">
-        <origin xyz="0 0 0"/>
-        <geometry>
-          <mesh filename="${wheel_model}" />
-        </geometry>
-      </collision>
-
       <xacro:thick_walled_tube_inertial
           inner_rad="${hub_dia / 2.0}" outer_rad="${tire_dia / 2.0}"
           height="${tire_width}" mass="${wheel_mass}"/>
-      <max_contacts>1</max_contacts>
-      <surface>
-        <contact>
-          <ode>
-            <soft_cfm>0.000000001</soft_cfm>
-            <soft_erp>0.2</soft_erp>
-            <kp>1e+10</kp>
-            <kd>10</kd>
-            <max_vel>0.01</max_vel>
-            <min_depth>0.005</min_depth>
-          </ode>
-        </contact>
-      </surface>
 
     </link>
 
