@@ -64,8 +64,8 @@ limitations under the License.
        from a U joint to the corresponding hex hub. wheel_travel is the
        vertical wheel travel. -->
   <xacro:property name="wheelbase" value="0.570"/>
-  <!-- <xacro:property name="hex_hub_dist" value="0.5"/> -->
-  <xacro:property name="hex_hub_dist" value="0.4"/>
+  <!-- <xacro:property name="hex_hub_dist" value="0.6"/> -->
+  <xacro:property name="hex_hub_dist" value="0.45"/>
   <!-- <xacro:property name="axle_length" value="0.03"/> -->
   <!--<xacro:property name="wheel_travel" value="0.1"/>
   <xacro:property name="shock_z_offset" value="0.11"/> -->

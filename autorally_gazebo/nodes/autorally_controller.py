@@ -356,12 +356,12 @@ class AutoRallyCtrlr(object):
           for cmd,priority in self.commandPriorities:
             #rospy.logwarn("looking for chassis commander %s with priority %d", cmd, priority)
             if cmd in self.chassisCmds:
-              self.chassisCmds[cmd].steering = numpy.clip(self.chassisCmds[cmd].steering,-1.0, 1.0)
+              self.chassisCmds[cmd].steering = numpy.clip(self.chassisCmds[cmd].steering,-math.radians(30), math.radians(30))
               if (rospy.Time.now()-self.chassisCmds[cmd].header.stamp) < \
                     rospy.Duration.from_sec(0.2) and\
                  not foundSteering:
                 #rospy.loginfo("%s in control of steering", cmd);
-                steer_ang = -math.radians(30) * self.chassisCmds[cmd].steering
+                steer_ang = -self.chassisCmds[cmd].steering
                 steer_ang_vel = 0.0
                 chassisSt.steering = self.chassisCmds[cmd].steering
                 chassisSt.steeringCommander = self.chassisCmds[cmd].sender
