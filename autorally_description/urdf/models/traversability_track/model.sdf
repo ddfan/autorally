@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<sdf version="1.5">
+  <model name="traversability_track">
+    <static>true</static>
+    <link name="link">
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <uri>model://urdf/cad/USGS_one_meter_x56y387_CA_SE_Fault_Zone_2017_tiny.dae</uri>
+            <scale>0.005 0.005 0.002</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.0</mu>
+              <mu2>1</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name="visual">
+        <cast_shadows>false</cast_shadows>
+        <geometry>
+          <mesh>
+            <uri>model://urdf/cad/USGS_one_meter_x56y387_CA_SE_Fault_Zone_2017_tiny.dae</uri>
+            <scale>0.005 0.005 0.002</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://urdf/gazebo.material</uri>
+            <name>Gazebo/Grass_image</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>

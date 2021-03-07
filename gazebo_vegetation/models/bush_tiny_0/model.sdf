@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name="Bush 0 Tiny">
+     <static>true</static>
+    <pose frame=''>0 0 0 1.57079 0 0</pose>
+    <link name="link">
+      <pose frame=''>0 0 0 0 0 0</pose>
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://bush_0/meshes/bush_0.obj</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+           <ode>
+            <kp>1.0</kp>
+            <kd>0.01</kd>
+            <max_vel>0.0</max_vel>
+            <min_depth>0.001</min_depth>
+           </ode>
+          </contact>
+          <friction>
+           <ode>
+            <mu>0.9</mu> 
+            <mu2>0.9</mu2>
+           </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+
+            <scale>1 1 1</scale>
+            <uri>model://bush_0/meshes/bush_0.obj</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+</sdf>
