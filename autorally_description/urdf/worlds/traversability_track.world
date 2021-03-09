@@ -1,25 +1,413 @@
-<?xml version="1.0" ?>
-<sdf version="1.6">
-  <world name="default">
+<sdf version='1.6'>
+  <world name='default'>
     <scene>
       <sky>
         <clouds>
           <speed>1</speed>
         </clouds>
       </sky>
-      <ambient>1.0 1.0 1.0 1.0</ambient>
-      <shadows>true</shadows>
+      <ambient>1 1 1 1</ambient>
+      <shadows>1</shadows>
+      <background>0.7 0.7 0.7 1</background>
     </scene>
-
-    <!-- A global light source -->
-    <include>
-      <uri>model://urdf/models/sun</uri>
-    </include>
-    <!-- A ground plane -->
-    <include>
-      <name>traversability_track</name>
-      <uri>model://urdf/models/traversability_track</uri>
-      <pose>0 0 0 0 0 0</pose>
-    </include>
+    <light name='sun' type='directional'>
+      <cast_shadows>1</cast_shadows>
+      <pose frame=''>0 0 10 0 -0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+    <model name='traversability_track'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>model://urdf/cad/USGS_one_meter_x56y387_CA_SE_Fault_Zone_2017_tiny.dae</uri>
+              <scale>0.005 0.005 0.002</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>1</mu>
+                <mu2>1</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <mesh>
+              <uri>model://urdf/cad/USGS_one_meter_x56y387_CA_SE_Fault_Zone_2017_tiny.dae</uri>
+              <scale>0.005 0.005 0.002</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://urdf/gazebo.material</uri>
+              <name>Gazebo/Grass_image</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+    </model>
+    <gravity>0 0 -9.8</gravity>
+    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <physics name='default_physics' default='0' type='ode'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <wind/>
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <latitude_deg>0</latitude_deg>
+      <longitude_deg>0</longitude_deg>
+      <elevation>0</elevation>
+      <heading_deg>0</heading_deg>
+    </spherical_coordinates>
+    <model name='bush_cluster_4'>
+      <include>
+        <uri>model://bush_cluster_4</uri>
+      </include>
+      <static>0</static>
+      <allow_auto_disable>1</allow_auto_disable>
+      <pose frame=''>-25.0841 -11.9763 -0.105172 0 -0 -0.924463</pose>
+    </model>
+    <model name='bush_cluster_3'>
+      <include>
+        <uri>model://bush_cluster_3</uri>
+      </include>
+      <static>0</static>
+      <allow_auto_disable>1</allow_auto_disable>
+      <pose frame=''>-17.0423 3.9957 -0.396972 0 -0 0</pose>
+    </model>
+    <model name='bush_cluster_3_0'>
+      <include>
+        <uri>model://bush_cluster_3</uri>
+      </include>
+      <static>0</static>
+      <allow_auto_disable>1</allow_auto_disable>
+      <pose frame=''>-5.26835 -26.7969 -0.185628 0.032413 -0 2.74158</pose>
+    </model>
+    <model name='bush_cluster_3_1'>
+      <include>
+        <uri>model://bush_cluster_3</uri>
+      </include>
+      <static>0</static>
+      <allow_auto_disable>1</allow_auto_disable>
+      <pose frame=''>17.0257 -12.8187 -0.48682 0 -0 1.26258</pose>
+    </model>
+    <model name='bush_cluster_4_0'>
+      <include>
+        <uri>model://bush_cluster_4</uri>
+      </include>
+      <static>0</static>
+      <allow_auto_disable>1</allow_auto_disable>
+      <pose frame=''>24.4264 -24.9116 -0.695051 0.024822 0.002674 0.91398</pose>
+    </model>
+    <model name='bush_cluster_4_1'>
+      <include>
+        <uri>model://bush_cluster_4</uri>
+      </include>
+      <static>0</static>
+      <allow_auto_disable>1</allow_auto_disable>
+      <pose frame=''>25.017 21.3226 -0.943112 0 -0 2.23489</pose>
+    </model>
+    <model name='bush_cluster_4_2'>
+      <include>
+        <uri>model://bush_cluster_4</uri>
+      </include>
+      <static>0</static>
+      <allow_auto_disable>1</allow_auto_disable>
+      <pose frame=''>4.9628 26.1192 -0.786439 0 0 -2.23692</pose>
+    </model>
+    <model name='bush_cluster_4_3'>
+      <include>
+        <uri>model://bush_cluster_4</uri>
+      </include>
+      <static>0</static>
+      <allow_auto_disable>1</allow_auto_disable>
+      <pose frame=''>-3.99017 16.9516 -0.53181 0 0 -0.403339</pose>
+    </model>
+    <model name='bush_cluster_3_2'>
+      <include>
+        <uri>model://bush_cluster_3</uri>
+      </include>
+      <static>0</static>
+      <allow_auto_disable>1</allow_auto_disable>
+      <pose frame=''>-26.1366 13.5689 -0.351933 0 -0 -2.19603</pose>
+    </model>
+    <model name='bush_cluster_0'>
+      <include>
+        <uri>model://bush_cluster_0</uri>
+      </include>
+      <static>0</static>
+      <allow_auto_disable>1</allow_auto_disable>
+      <pose frame=''>-5.11754 -17.6666 -0.079775 0 -0 -2.5366</pose>
+    </model>
+    <model name='bush_cluster_0_0'>
+      <include>
+        <uri>model://bush_cluster_0</uri>
+      </include>
+      <static>0</static>
+      <allow_auto_disable>1</allow_auto_disable>
+      <pose frame=''>24.1185 -8.33483 -0.547088 0 -0 2.67284</pose>
+    </model>
+    <model name='bush_cluster_0_1'>
+      <include>
+        <uri>model://bush_cluster_0</uri>
+      </include>
+      <static>0</static>
+      <allow_auto_disable>1</allow_auto_disable>
+      <pose frame=''>-11.3167 -1.18322 -0.155242 0 -0 3.01279</pose>
+    </model>
+    <model name='bush_cluster_0_2'>
+      <include>
+        <uri>model://bush_cluster_0</uri>
+      </include>
+      <static>0</static>
+      <allow_auto_disable>1</allow_auto_disable>
+      <pose frame=''>12.0071 6.28901 -0.68075 0 -0 -0.724589</pose>
+    </model>
+    <model name='bush_cluster_1'>
+      <include>
+        <uri>model://bush_cluster_1</uri>
+      </include>
+      <static>0</static>
+      <allow_auto_disable>1</allow_auto_disable>
+      <pose frame=''>-24.704 -12.1505 -0.090672 0 -0 1.62203</pose>
+    </model>
+    <model name='bush_cluster_1_0'>
+      <include>
+        <uri>model://bush_cluster_1</uri>
+      </include>
+      <static>0</static>
+      <allow_auto_disable>1</allow_auto_disable>
+      <pose frame=''>25.875 -20.0244 -0.667845 0 -0 1.59224</pose>
+    </model>
+    <model name='bush_cluster_1_1'>
+      <include>
+        <uri>model://bush_cluster_1</uri>
+      </include>
+      <static>0</static>
+      <allow_auto_disable>1</allow_auto_disable>
+      <pose frame=''>-6.88018 13.6906 -0.404057 0 0 -1.81816</pose>
+    </model>
+    <model name='bush_cluster_1_2'>
+      <include>
+        <uri>model://bush_cluster_1</uri>
+      </include>
+      <static>0</static>
+      <allow_auto_disable>1</allow_auto_disable>
+      <pose frame=''>23.8197 16.0193 -1.04952 0 -0 1.75857</pose>
+    </model>
+    <model name='bush_cluster_1_3'>
+      <include>
+        <uri>model://bush_cluster_1</uri>
+      </include>
+      <static>0</static>
+      <allow_auto_disable>1</allow_auto_disable>
+      <pose frame=''>5.49737 28.114 -0.827923 0 -0 1.36012</pose>
+    </model>
+    <model name='bush_cluster_2'>
+      <include>
+        <uri>model://bush_cluster_2</uri>
+      </include>
+      <static>0</static>
+      <allow_auto_disable>1</allow_auto_disable>
+      <pose frame=''>-23.8684 15.5334 -0.346756 0 -0 -2.85814</pose>
+    </model>
+    <model name='bush_cluster_2_0'>
+      <include>
+        <uri>model://bush_cluster_2</uri>
+      </include>
+      <static>0</static>
+      <allow_auto_disable>1</allow_auto_disable>
+      <pose frame=''>15.9451 -11.7397 -0.572449 0 0 -2.40448</pose>
+    </model>
+    <model name='bush_cluster_2_1'>
+      <include>
+        <uri>model://bush_cluster_2</uri>
+      </include>
+      <static>0</static>
+      <allow_auto_disable>1</allow_auto_disable>
+      <pose frame=''>-24.2196 20.0304 -0.097525 0 -0 -1.65187</pose>
+    </model>
+    <model name='bush_cluster_2_2'>
+      <include>
+        <uri>model://bush_cluster_2</uri>
+      </include>
+      <static>0</static>
+      <allow_auto_disable>1</allow_auto_disable>
+      <pose frame=''>16.7162 5.53527 -0.598921 0 -0 -2.34625</pose>
+    </model>
+    <model name='bush_cluster_2_3'>
+      <include>
+        <uri>model://bush_cluster_2</uri>
+      </include>
+      <static>0</static>
+      <allow_auto_disable>1</allow_auto_disable>
+      <pose frame=''>-1.98476 27.1024 -0.727212 0 -0 -1.42049</pose>
+    </model>
+    <model name='bush_cluster_2_4'>
+      <include>
+        <uri>model://bush_cluster_2</uri>
+      </include>
+      <static>0</static>
+      <allow_auto_disable>1</allow_auto_disable>
+      <pose frame=''>21.9534 18.313 -0.939096 0 -0 1.55483</pose>
+    </model>
+    <model name='bush_cluster_2_5'>
+      <include>
+        <uri>model://bush_cluster_2</uri>
+      </include>
+      <static>0</static>
+      <allow_auto_disable>1</allow_auto_disable>
+      <pose frame=''>-23.2451 -14.8095 -0.086639 0 -0 0</pose>
+    </model>
+    <model name='bush_cluster_2_6'>
+      <include>
+        <uri>model://bush_cluster_2</uri>
+      </include>
+      <static>0</static>
+      <allow_auto_disable>1</allow_auto_disable>
+      <pose frame=''>-2.97558 -21.896 -0.167795 0 -0 2.17085</pose>
+    </model>
+    <model name='bush_cluster_2_7'>
+      <include>
+        <uri>model://bush_cluster_2</uri>
+      </include>
+      <static>0</static>
+      <allow_auto_disable>1</allow_auto_disable>
+      <pose frame=''>27.2878 -27.0162 -0.819208 0 -0 -1.8196</pose>
+    </model>
+    <model name='bush_cluster_4_4'>
+      <include>
+        <uri>model://bush_cluster_4</uri>
+      </include>
+      <static>0</static>
+      <allow_auto_disable>1</allow_auto_disable>
+      <pose frame=''>1.05815 -3.83976 -0.452106 0 -0 0</pose>
+    </model>
+    <model name='Bush 1'>
+      <static>1</static>
+      <pose frame=''>0.665898 14.4416 -1.20768 0 -0 0</pose>
+      <include>
+        <uri>model://bush_1</uri>
+      </include>
+    </model>
+    <model name='Bush 2'>
+      <static>1</static>
+      <pose frame=''>26.7023 28.0875 -1.00872 0 -0 0</pose>
+      <include>
+        <uri>model://bush_2</uri>
+      </include>
+    </model>
+    <model name='Bush 2_0'>
+      <static>1</static>
+      <pose frame=''>-23.0366 -19.6542 0 0 -0 0</pose>
+      <include>
+        <uri>model://bush_2</uri>
+      </include>
+    </model>
+    <model name='Bush 3'>
+      <static>1</static>
+      <pose frame=''>15.0564 -23.8616 -0.612105 0 6e-06 1.60589</pose>
+      <include>
+        <uri>model://bush_3</uri>
+      </include>
+    </model>
+    <model name='Bush 4'>
+      <static>1</static>
+      <pose frame=''>-4.24855 -2.65869 -0.730417 0 -6e-06 -1.58242</pose>
+      <include>
+        <uri>model://bush_4</uri>
+      </include>
+    </model>
+    <model name='Bush 5'>
+      <static>1</static>
+      <pose frame=''>-17.7136 24.0586 -1.24527 0 -0 0</pose>
+      <include>
+        <uri>model://bush_5</uri>
+      </include>
+    </model>
+    <model name='Bush 0'>
+      <static>1</static>
+      <pose frame=''>14.3709 0.8364 -0.785759 0 -0 0</pose>
+      <include>
+        <uri>model://bush_0</uri>
+      </include>
+    </model>
+    <model name='Bush 0_0'>
+      <static>1</static>
+      <pose frame=''>-23.5384 -6.29852 -0.382769 0 -0 0</pose>
+      <include>
+        <uri>model://bush_0</uri>
+      </include>
+    </model>
+    <model name='Bush 1_0'>
+      <static>1</static>
+      <pose frame=''>23.8915 -23.8125 -1.39979 0 1e-06 3.02803</pose>
+      <include>
+        <uri>model://bush_1</uri>
+      </include>
+    </model>
+    <model name='Bush 2_1'>
+      <static>1</static>
+      <pose frame=''>-8.62441 -28.9689 0 0 -6e-06 -1.37324</pose>
+      <include>
+        <uri>model://bush_2</uri>
+      </include>
+    </model>
+    <model name='Bush 3_0'>
+      <static>1</static>
+      <pose frame=''>-14.5841 6.84622 -1.49239 0 -0 0</pose>
+      <include>
+        <uri>model://bush_3</uri>
+      </include>
+    </model>
+    <model name='Bush 4_0'>
+      <static>1</static>
+      <pose frame=''>-26.975 13.9969 -1.05904 0 -0 0</pose>
+      <include>
+        <uri>model://bush_4</uri>
+      </include>
+    </model>
+    <model name='Bush 5_0'>
+      <static>1</static>
+      <pose frame=''>12.1337 -9.93634 -1.73897 0 6e-06 1.47525</pose>
+      <include>
+        <uri>model://bush_5</uri>
+      </include>
+    </model>
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose frame=''>-3.2232 -48.6498 40.2601 -0 0.8538 1.52738</pose>
+        <view_controller>orbit</view_controller>
+        <projection_type>perspective</projection_type>
+      </camera>
+    </gui>
   </world>
 </sdf>

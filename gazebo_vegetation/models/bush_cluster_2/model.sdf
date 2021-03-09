@@ -1,0 +1,70 @@
+<?xml version='1.0'?>
+<sdf version='1.6'>
+  <model name='bush_cluster_2'>
+    <model name='Bush 0 Tiny'>
+      <static>1</static>
+      <pose frame=''>-0.411462 0.365824 0 0 3e-06 2.56739</pose>
+      <include>
+        <uri>model://bush_tiny_0</uri>
+      </include>
+    </model>
+    <model name='Bush 0 Tiny_0'>
+      <static>1</static>
+      <pose frame=''>0.486188 -0.379836 0 0 -3e-06 -0.580145</pose>
+      <include>
+        <uri>model://bush_tiny_0</uri>
+      </include>
+    </model>
+    <model name='Bush 0 Tiny_1'>
+      <static>1</static>
+      <pose frame=''>-0.473187 -0.391675 0 0 5e-06 2.11971</pose>
+      <include>
+        <uri>model://bush_tiny_0</uri>
+      </include>
+    </model>
+    <model name='Bush 0 Tiny_2'>
+      <static>1</static>
+      <pose frame=''>0.409806 0.307965 0 0 -6e-06 -1.85352</pose>
+      <include>
+        <uri>model://bush_tiny_0</uri>
+      </include>
+    </model>
+    <model name='Bush 1 Tiny'>
+      <static>1</static>
+      <pose frame=''>-0.022147 -0.005618 0 0 -6e-06 -1.49919</pose>
+      <include>
+        <uri>model://bush_tiny_1</uri>
+      </include>
+    </model>
+    <model name='Bush 3 Tiny'>
+      <static>1</static>
+      <pose frame=''>0.053275 -0.472301 0 0 -0 0</pose>
+      <include>
+        <uri>model://bush_tiny_3</uri>
+      </include>
+    </model>
+    <model name='Bush 4 Tiny'>
+      <static>1</static>
+      <pose frame=''>-0.629148 0.007597 0 0 -0 0</pose>
+      <include>
+        <uri>model://bush_tiny_4</uri>
+      </include>
+    </model>
+    <model name='Bush 4 Tiny_0'>
+      <static>1</static>
+      <pose frame=''>-0.019419 0.600684 0 0 -6e-06 -1.7297</pose>
+      <include>
+        <uri>model://bush_tiny_4</uri>
+      </include>
+    </model>
+    <model name='Bush 5 Tiny'>
+      <static>1</static>
+      <pose frame=''>0.606095 -0.032639 0 0 -0 0</pose>
+      <include>
+        <uri>model://bush_tiny_5</uri>
+      </include>
+    </model>
+    <static>0</static>
+    <allow_auto_disable>1</allow_auto_disable>
+  </model>
+</sdf>

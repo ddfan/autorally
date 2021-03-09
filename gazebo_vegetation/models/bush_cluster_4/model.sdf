@@ -1,0 +1,119 @@
+<?xml version='1.0'?>
+<sdf version='1.6'>
+  <model name='bush_cluster_4'>
+    <model name='Bush 1 Tiny'>
+      <static>1</static>
+      <pose frame=''>1.17882 1.57961 0 0 -0 0</pose>
+      <include>
+        <uri>model://bush_tiny_1</uri>
+      </include>
+    </model>
+    <model name='Bush 1 Tiny_0'>
+      <static>1</static>
+      <pose frame=''>1.32573 -1.01966 0 0 -3e-06 -2.7051</pose>
+      <include>
+        <uri>model://bush_tiny_1</uri>
+      </include>
+    </model>
+    <model name='Bush 1 Tiny_1'>
+      <static>1</static>
+      <pose frame=''>-2.75525 0.525367 0 0 6e-06 1.9933</pose>
+      <include>
+        <uri>model://bush_tiny_1</uri>
+      </include>
+    </model>
+    <model name='Bush 1 Tiny_2'>
+      <static>1</static>
+      <pose frame=''>-2.3834 2.06943 0 0 -6e-06 -1.33848</pose>
+      <include>
+        <uri>model://bush_tiny_1</uri>
+      </include>
+    </model>
+    <model name='Bush 1 Tiny_3'>
+      <static>1</static>
+      <pose frame=''>2.82736 1.71598 0 0 -4e-06 -2.46621</pose>
+      <include>
+        <uri>model://bush_tiny_1</uri>
+      </include>
+    </model>
+    <model name='Bush 1 Tiny_4'>
+      <static>1</static>
+      <pose frame=''>3.24381 -2.66662 0 0 -6e-06 -1.5898</pose>
+      <include>
+        <uri>model://bush_tiny_1</uri>
+      </include>
+    </model>
+    <model name='Bush 2 Tiny'>
+      <static>1</static>
+      <pose frame=''>0.285291 -2.38202 0 0 6e-06 1.47753</pose>
+      <include>
+        <uri>model://bush_tiny_2</uri>
+      </include>
+    </model>
+    <model name='Bush 2 Tiny_0'>
+      <static>1</static>
+      <pose frame=''>-4.282 1.25569 0 0 -0 0</pose>
+      <include>
+        <uri>model://bush_tiny_2</uri>
+      </include>
+    </model>
+    <model name='Bush 2 Tiny_1'>
+      <static>1</static>
+      <pose frame=''>-1.96462 -1.32688 0 0 -2e-06 -2.83213</pose>
+      <include>
+        <uri>model://bush_tiny_2</uri>
+      </include>
+    </model>
+    <model name='Bush 2 Tiny_2'>
+      <static>1</static>
+      <pose frame=''>-1.67896 -2.05924 0 0 6e-06 1.20287</pose>
+      <include>
+        <uri>model://bush_tiny_2</uri>
+      </include>
+    </model>
+    <model name='Bush 2 Tiny_3'>
+      <static>1</static>
+      <pose frame=''>2.31985 2.62136 0 0 -0 0</pose>
+      <include>
+        <uri>model://bush_tiny_2</uri>
+      </include>
+    </model>
+    <model name='Bush 2 Tiny_4'>
+      <static>1</static>
+      <pose frame=''>4.2162 0.352562 0 0 -6e-06 -1.97115</pose>
+      <include>
+        <uri>model://bush_tiny_2</uri>
+      </include>
+    </model>
+    <model name='Bush 3 Tiny'>
+      <static>1</static>
+      <pose frame=''>-1.09686 1.03007 0 0 -0 0</pose>
+      <include>
+        <uri>model://bush_tiny_3</uri>
+      </include>
+    </model>
+    <model name='Bush 4 Tiny'>
+      <static>1</static>
+      <pose frame=''>-3.71789 -0.984976 0 0 6e-06 1.47575</pose>
+      <include>
+        <uri>model://bush_tiny_4</uri>
+      </include>
+    </model>
+    <model name='Bush 4 Tiny_0'>
+      <static>1</static>
+      <pose frame=''>0.525264 2.83151 0 0 -4e-06 -2.51879</pose>
+      <include>
+        <uri>model://bush_tiny_4</uri>
+      </include>
+    </model>
+    <model name='Bush 5 Tiny'>
+      <static>1</static>
+      <pose frame=''>1.9567 -3.54215 0 0 -0 0</pose>
+      <include>
+        <uri>model://bush_tiny_5</uri>
+      </include>
+    </model>
+    <static>0</static>
+    <allow_auto_disable>1</allow_auto_disable>
+  </model>
+</sdf>
